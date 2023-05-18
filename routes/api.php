@@ -18,5 +18,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::prefix('/resources')->group(function() {
-    Route::get('/get', [Resource::class, 'index'])->name('resources.index');
+    Route::post('/update', [\App\Http\Controllers\ResourceController::class, 'update'])->name('resources.update');
+});
+Route::prefix('/club')->group(function() {
+    Route::get('/get', [\App\Http\Controllers\ClubController::class, 'index'])->name('club.index');
+    Route::post('/create', [\App\Http\Controllers\ClubController::class, 'store'])->name('club.store');
 });
