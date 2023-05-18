@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
+            $table->string('club');
+            $table->float('balance_available');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

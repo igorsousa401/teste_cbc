@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
+            $table->string('resource');
+            $table->float('balance_available');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
